@@ -22,7 +22,7 @@ export const CategoriesProvider = ({ children }) => {
   async function fetchCategories() {
     categoriesDispatch({ type: 'GET_CATEGORIES' })
     try {
-      const categoriesData = await axios.get('api/categoriess')
+      const categoriesData = await axios.get('api/categories')
       categoriesDispatch({
         type: 'GET_CATEGORIES_SUCCESS',
         payload: categoriesData.data.categories,

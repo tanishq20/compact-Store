@@ -1,0 +1,33 @@
+.home_product_category {
+  background-color: var(--white);
+}
+
+.home_product_category:hover {
+  transform: scale(1.09);
+  transition: all 0.3s ease-in-out;
+}
+
+.home_product_category_overlay {
+  opacity: 0;
+  font-size: var(--font-s-lg);
+  font-weight: var(--font-w-semibold);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.home_product_category:hover .home_product_category_overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.7;
+  background: var(--black);
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}

@@ -1,50 +1,41 @@
-import { Link } from 'react-router-dom'
-import { Banner } from '../../components'
+import { Banner, CategoryCard, HomepageSection } from '../../components'
+import { useCategories } from '../../context'
 
 export const Home = () => {
+  const { categoriesState } = useCategories()
+  const { categories, categoriesLoading, categoriesError } = categoriesState
+
   return (
     <main>
       <Banner />
       <section>
         <div className='products-container d-flex flex-col'>
-          <div className='products-showcase'>
-            <div className='products-showcase-heading d-flex justify-content-between align-items-center flex-wrap'>
-              <div>
-                <h2 className='products-showcase-head'>Best of Electronics</h2>
-                <p className='products-showcase-subhead'>
-                  Devices and Accessories
-                </p>
-              </div>
-              <div>
-                <Link to={'/products'}>
-                  <button className='btn btn-secondary'>View All</button>
-                </Link>
-              </div>
-            </div>
-            <div className='products-section-change' />
-            <div className='products-showcase-items w-full d-flex justify-content-center align-items-center flex-wrap'>
-              <h1>Categories</h1>
-            </div>
-          </div>
-          <div className='products-showcase'>
-            <div className='products-showcase-heading d-flex justify-content-between align-items-center flex-wrap'>
-              <div>
-                <h2 className='products-showcase-head'>New Arrivals</h2>
-                <p className='products-showcase-subhead'>
-                  Devices and Accessories
-                </p>
-              </div>
-              <div>
-                <Link to={'/products'}>
-                  <button className='btn btn-secondary'>View All</button>
-                </Link>
-              </div>
-            </div>
-            <div className='products-section-change' />
-            <div className='products-showcase-items w-full d-flex justify-content-center align-items-center flex-wrap'>
-              <h1>Products</h1>
-            </div>
-          </div>
+          <HomepageSection
+            head='Best of Electronics'
+            subhead='Devices and Accessories'
+            url='products'
+            btnText='View All'
+          >
+            {categoriesLoading ? (
+              <h1>Loading...</h1>
+            ) : (
+              categories.map((categoriesDetails) => (
+                <CategoryCard
+                  key={categoriesDetails._id}
+                  categoriesDetails={categoriesDetails}
+                />
+              ))
+            )}
+            {categoriesError && <h1>Oops....something went wrong🥲</h1>}
+          </HomepageSection>
+          <HomepageSection
+            head='New Arrivals'
+            subhead='Devices and Accessories'
+            url='products'
+            btnText='View All'
+          >
+            <h1>Products</h1>
+          </HomepageSection>
         </div>
       </section>
     </main>

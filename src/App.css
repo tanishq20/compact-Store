@@ -5,3 +5,76 @@ html {
 body {
   background-color: var(--default-color);
 }
+
+.products-container {
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.products-showcase {
+  background-color: var(--default-light);
+  margin: auto;
+  width: 100%;
+}
+
+.products-showcase-heading {
+  padding: 1rem 2rem;
+}
+
+.products-showcase-head {
+  font-size: var(--font-s-lg);
+  font-weight: var(--font-w-semibold);
+  color: var(--white);
+}
+
+.products-showcase-subhead {
+  font-size: var(--font-s-base);
+  font-weight: var(--font-w-semibold);
+  color: var(--text-color);
+}
+
+.products-section-change {
+  background-color: var(--white);
+  max-width: 100%;
+  height: 2px;
+}
+
+.products-showcase-items {
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* product page css */
+.products-page {
+  max-width: 100%;
+}
+
+.products-wrapper {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  padding: 2rem 2rem 0 2rem;
+  height: 100%;
+}
+
+/* Pagination utility class */
+.pagination-nav {
+  gap: 8px;
+  list-style: none;
+  padding: 2rem 0 0 2rem;
+}
+
+.pagination-nav-item {
+  font-size: var(--font-s-lg);
+  font-weight: var(--font-w-semibold);
+  color: var(--text-color);
+}
+
+.pagination-nav-item:hover {
+  color: var(--active-color);
+}
+
+.pagination-nav-icon {
+  font-size: var(--font-s-base);
+  color: var(--grey);
+}

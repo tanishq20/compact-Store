@@ -1,0 +1,32 @@
+.hero_img {
+  opacity: 0.5;
+}
+
+.hero_content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 2rem;
+}
+
+.hero_content_btn {
+  font-size: var(--font-s-lg);
+}
+
+.hero_head {
+  text-align: center;
+  font-size: var(--font-s-2xl);
+  font-weight: var(--font-w-semibold);
+  color: var(--white);
+}
+
+@media only screen and (max-width: 768px) {
+  .hero_content .btn {
+    font-size: var(--font-s-base);
+  }
+
+  .hero_head {
+    font-size: var(--font-s-base);
+    font-weight: var(--font-w-medium);
+  }
+}

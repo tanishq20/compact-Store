@@ -1,3 +1,5 @@
 export { Header } from './header/Header'
 export { Footer } from './footer/Footer'
 export { Banner } from './banner/Banner'
+export { CategoryCard } from './cards/categoryCard/CategoryCard'
+export { HomepageSection } from './containers/HomepageSection'

@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid'
 
 /**
  * Category Database can be added here.
@@ -8,20 +8,34 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+    cardImg:
+      'https://ik.imagekit.io/tanishq20/assets/products/laptops/img-2_f54JhENqh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646379118823',
+    categoryName: 'laptops',
+    cardName: 'Laptops',
+    description: '',
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+    cardImg:
+      'https://ik.imagekit.io/tanishq20/assets/products/mobiles/img-2_iiJdMM1kO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646379117546',
+    categoryName: 'mobiles',
+    cardName: 'Mobiles',
+    description: '',
   },
   {
     _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+    cardImg:
+      'https://ik.imagekit.io/tanishq20/assets/products/watches/img-1_jf6gl642O.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646379116454',
+    categoryName: 'watches',
+    cardName: 'Watches',
+    description: '',
   },
-];
+  {
+    _id: uuid(),
+    cardImg:
+      'https://ik.imagekit.io/tanishq20/assets/products/cameras/img-2_iFLRmV7Tn.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646379120176',
+    categoryName: 'cameras',
+    cardName: 'Cameras',
+    description: '',
+  },
+]

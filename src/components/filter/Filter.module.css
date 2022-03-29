@@ -1,0 +1,80 @@
+.filter_wrapper {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 270px;
+  padding: 2rem 0 0 2rem;
+}
+
+.filter_showcase {
+  position: sticky;
+  padding: 2rem;
+  top: 0;
+  background-color: var(--default-light);
+}
+
+.filter_heading_left,
+.filter_heading_right {
+  font-size: var(--font-s-md);
+  padding-bottom: 8px;
+}
+
+.filter_heading_left {
+  font-weight: var(--font-w-medium);
+  color: var(--text-color);
+}
+
+.filter_heading_right {
+  font-weight: var(--font-w-medium);
+  color: var(--primary-400);
+  transition: all 0.3s ease-in-out;
+  text-decoration: underline;
+}
+
+.filter_heading_right:hover {
+  color: var(--active-color);
+}
+
+.filter_content {
+  max-height: calc(100vh - 5.5rem);
+}
+
+.filter_subcontent {
+  padding: 1rem 0.5rem;
+}
+
+.filter_subcontent_heading {
+  font-size: var(--font-s-md);
+  font-weight: var(--font-w-medium);
+  color: var(--active-color);
+  padding: 5px 0;
+}
+
+.filter_price {
+  font-size: var(--font-s-lg);
+  font-weight: var(--font-w-medium);
+  padding: 5px 0;
+  color: var(--white);
+}
+
+.filter_category,
+.filter_rating,
+.filter_sorting,
+.filter_availability {
+  gap: 0.8rem;
+}
+
+.input_selector_label {
+  color: var(--white);
+  font-weight: var(--font-w-medium);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.filter_content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.filter_content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

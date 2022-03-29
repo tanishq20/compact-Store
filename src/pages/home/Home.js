@@ -1,7 +1,15 @@
-import { Banner, CategoryCard, HomepageSection } from '../../components'
-import { useCategories } from '../../context'
+import {
+  Banner,
+  CategoryCard,
+  HomepageSection,
+  ProductCard,
+} from '../../components'
+import { useCategories, useProducts } from '../../context'
 
 export const Home = () => {
+  const { productsState } = useProducts()
+  const { products } = productsState
+
   const { categoriesState } = useCategories()
   const { categories, categoriesLoading, categoriesError } = categoriesState
 
@@ -34,7 +42,14 @@ export const Home = () => {
             url='products'
             btnText='View All'
           >
-            <h1>Products</h1>
+            {products.slice(0, 4).map((productDetails) => (
+              <ProductCard
+                key={productDetails._id}
+                productDetails={productDetails}
+                horz={true}
+                newBadge={true}
+              />
+            ))}
           </HomepageSection>
         </div>
       </section>

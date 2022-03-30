@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { MockAPI } from '../mockMan'
-import { Cart, Home, Login, Products, Wishlist } from '../pages'
+import { Cart, Home, Login, Products, Signup, Wishlist } from '../pages'
 
 export const Router = () => {
   return (
@@ -10,6 +10,7 @@ export const Router = () => {
       <Route path='/products' element={<Products />} />
       <Route path='/wishlist' element={<Wishlist />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/signup' element={<Signup />} />
       <Route path='/mockapi' element={<MockAPI />} />
     </Routes>
   )

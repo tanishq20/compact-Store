@@ -1,7 +1,9 @@
+import { LoginAuth } from '../../components'
+
 export const Login = () => {
   return (
     <>
-      <h1>This is login page</h1>
+      <LoginAuth />
     </>
   )
 }

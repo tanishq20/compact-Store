@@ -1,3 +1,5 @@
+@import url('react-toastify/dist/ReactToastify.css');
+
 html {
   scroll-behavior: smooth;
 }
@@ -77,4 +79,9 @@ body {
 .pagination-nav-icon {
   font-size: var(--font-s-base);
   color: var(--grey);
+}
+
+.pointer-none {
+  cursor: not-allowed;
+  pointer-events: not-allowed;
 }

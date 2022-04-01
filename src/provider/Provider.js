@@ -2,14 +2,17 @@ import {
   ProductsProvider,
   CategoriesProvider,
   FilterProvider,
+  AuthProvider,
 } from '../context'
 
 export const Provider = ({ children }) => {
   return (
-    <ProductsProvider>
-      <CategoriesProvider>
-        <FilterProvider>{children}</FilterProvider>
-      </CategoriesProvider>
-    </ProductsProvider>
+    <AuthProvider>
+      <ProductsProvider>
+        <CategoriesProvider>
+          <FilterProvider>{children}</FilterProvider>
+        </CategoriesProvider>
+      </ProductsProvider>
+    </AuthProvider>
   )
 }

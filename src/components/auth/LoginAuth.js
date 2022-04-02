@@ -60,7 +60,7 @@ export const LoginAuth = () => {
           userDetailsPayload: response.data.foundUser,
           encodedTokenPayload: response.data.encodedToken,
         })
-        localStorage.setItem('userToken', response.data.encodedToken)
+        localStorage.setItem('encodedToken', response.data.encodedToken)
         localStorage.setItem('firstName', response.data.foundUser.firstName)
         navigate('/products', { replace: true })
         Toast('Login Successfull', 'success')

@@ -46,6 +46,11 @@ body {
   gap: 2rem;
 }
 
+.disabled-btn {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
 /* product page css */
 .products-page {
   max-width: 100%;

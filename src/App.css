@@ -90,3 +90,15 @@ body {
   cursor: not-allowed;
   pointer-events: not-allowed;
 }
+
+.global-login-btn {
+  font-size: var(--font-s-xl);
+  font-weight: var(--font-w-medium);
+  color: var(--text-color);
+  text-decoration: underline;
+  transition: all 0.3s ease-in-out;
+}
+
+.global-login-btn:hover {
+  color: var(--active-color);
+}

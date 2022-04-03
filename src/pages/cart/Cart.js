@@ -7,13 +7,16 @@ import {
 } from '../../components'
 import { useAuth, useCart } from '../../context'
 import { Link } from 'react-router-dom'
+import { getFromCart } from '../../apiCalls'
 
 export const Cart = () => {
   const { authState } = useAuth()
   const { userLogin } = authState
 
-  const { cartState, cartLoading } = useCart()
+  const { cartState } = useCart()
   const { cartItems } = cartState
+
+  const { cartLoading } = getFromCart()
 
   return (
     <main>
@@ -60,7 +63,7 @@ export const Cart = () => {
       ) : (
         <h1>
           You are not login.{' '}
-          <Link to={'/login'} className={style.cart_login_btn}>
+          <Link to={'/login'} className='global-login-btn'>
             Login
           </Link>{' '}
           First to access cart!{' '}

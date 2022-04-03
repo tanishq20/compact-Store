@@ -1,6 +1,7 @@
-import { addToCart } from '../../../apiCalls'
-import { useAuth, useCart } from '../../../context'
+import { addToCart, addToWishlist, removeFromWishlist } from '../../../apiCalls'
+import { useAuth, useCart, useWishlist } from '../../../context'
 import { useNavigate } from 'react-router-dom'
+import { Toast } from '../../../components'
 
 export const ProductCard = ({ productDetails, horz, newBadge }) => {
   let navigate = useNavigate()
@@ -21,11 +22,33 @@ export const ProductCard = ({ productDetails, horz, newBadge }) => {
   const { cartState, cartDispatch } = useCart()
   const { cartItems } = cartState
 
+  const { wishlistState, wishlistDispatch } = useWishlist()
+  const { wishlistItems } = wishlistState
+
   const addToCartHandler = () => {
     if (userLogin) {
       addToCart(productDetails, cartDispatch, cartItems)
     } else {
       navigate('../login', { replace: true })
+      Toast('You need to login first.', 'warn')
+    }
+  }
+
+  const addToWishlistHandler = () => {
+    if (userLogin) {
+      addToWishlist(productDetails, wishlistDispatch)
+    } else {
+      navigate('../login', { replace: true })
+      Toast('You need to login first.', 'warn')
+    }
+  }
+
+  const removeFromWishlistHandler = () => {
+    if (userLogin) {
+      removeFromWishlist(_id, wishlistDispatch)
+    } else {
+      navigate('../login', { replace: true })
+      Toast('You need to login first.', 'warn')
     }
   }
 
@@ -36,9 +59,15 @@ export const ProductCard = ({ productDetails, horz, newBadge }) => {
       }`}
     >
       {newBadge && <div className='card-badge-item'>New</div>}
-      <button className='wishlist-btn'>
-        <i className='fas fa-heart wishlist-btn-icon' />
-      </button>
+      {wishlistItems.find((item) => item._id === _id) ? (
+        <button className='wishlist-btn' onClick={removeFromWishlistHandler}>
+          <i className='fas fa-heart wishlist-btn-icon-checked' />
+        </button>
+      ) : (
+        <button className='wishlist-btn' onClick={addToWishlistHandler}>
+          <i className='fas fa-heart wishlist-btn-icon' />
+        </button>
+      )}
       <div className='card-content rounded-5'>
         <div className={horz ? 'ecomm-card-horz-img' : ''}>
           <img src={cardImg} alt='camera_image' className='ecomm-prod-image' />

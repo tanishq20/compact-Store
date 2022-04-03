@@ -1,0 +1,50 @@
+.trash_btn {
+  cursor: pointer;
+  padding: 0.8rem;
+  border: transparent;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  top: 5px;
+  right: 8px;
+  border-radius: 50%;
+}
+
+.trash_btn_icon {
+  color: var(--danger-600);
+  font-size: var(--font-s-base);
+  transition: all 0.3s ease-in-out;
+}
+
+.trash_btn_icon:hover {
+  color: var(--danger-700);
+}
+
+.card_qty {
+  padding: 1.25rem 1.25rem 0 1.25rem;
+  font-size: var(--font-s-lg);
+  font-weight: var(--font-w-semibold);
+  gap: 1rem;
+  color: var(--default-color);
+}
+
+.card_qty_item {
+  color: var(--black);
+  font-size: var(--font-s-xl);
+  gap: 1.5rem;
+}
+
+.card_qty_btn {
+  font-size: var(--font-s-lg);
+  font-weight: var(--font-w-bold);
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 5px;
+  border-radius: 50%;
+  border: none;
+}
+
+.card_qty_btn:hover {
+  background-color: var(--primary-hover);
+  transition: all 0.3s ease-in-out;
+}

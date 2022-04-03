@@ -1,5 +1,11 @@
+import { addToCart } from '../../../apiCalls'
+import { useAuth, useCart } from '../../../context'
+import { useNavigate } from 'react-router-dom'
+
 export const ProductCard = ({ productDetails, horz, newBadge }) => {
+  let navigate = useNavigate()
   const {
+    _id,
     cardImg,
     cardHead,
     cardDesc,
@@ -8,6 +14,20 @@ export const ProductCard = ({ productDetails, horz, newBadge }) => {
     cardMainPrice,
     cardDiscPer,
   } = productDetails
+
+  const { authState } = useAuth()
+  const { userLogin } = authState
+
+  const { cartState, cartDispatch } = useCart()
+  const { cartItems } = cartState
+
+  const addToCartHandler = () => {
+    if (userLogin) {
+      addToCart(productDetails, cartDispatch, cartItems)
+    } else {
+      navigate('../login', { replace: true })
+    }
+  }
 
   return (
     <div
@@ -41,7 +61,21 @@ export const ProductCard = ({ productDetails, horz, newBadge }) => {
           </div>
           <div className='card-footer'>
             <button className='btn btn-primary'>BUY</button>
-            <button className='btn btn-secondary'>Add To Cart</button>
+            {cartItems.find((item) => item._id === _id) ? (
+              <button
+                className='btn btn-default'
+                onClick={() => navigate('/cart', { replace: true })}
+              >
+                Go To Cart
+              </button>
+            ) : (
+              <button
+                className='btn btn-secondary'
+                onClick={() => addToCartHandler()}
+              >
+                Add To Cart
+              </button>
+            )}
           </div>
         </div>
       </div>

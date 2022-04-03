@@ -1,0 +1,44 @@
+.cart_price_wrapper {
+  padding: 2rem;
+  border-left: 2px solid var(--white);
+  min-width: 40%;
+}
+
+.cart_price_details_wrapper {
+  gap: 1rem;
+}
+
+.cart_price_heading {
+  font-weight: var(--font-w-bold);
+  color: var(--text-color);
+}
+
+.cart_item_desc,
+.cart_item_price {
+  color: var(--white);
+  font-size: var(--font-s-base);
+  font-weight: var(--font-w-semibold);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.cart_item_total_amount_desc,
+.cart_item_total_price {
+  color: var(--active-color);
+  font-size: var(--font-s-md);
+  font-weight: var(--font-w-bold);
+}
+
+.cart_item_price_disc {
+  color: var(--success-300);
+}
+
+.cart_item_price_fee {
+  color: var(--success-300);
+}
+
+.cart_save_desc {
+  color: var(--success-300);
+  font-size: var(--font-s-base);
+  font-weight: var(--font-w-medium);
+}

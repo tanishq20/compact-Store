@@ -3,6 +3,7 @@ import {
   CategoriesProvider,
   FilterProvider,
   AuthProvider,
+  CartProvider,
 } from '../context'
 
 export const Provider = ({ children }) => {
@@ -10,7 +11,9 @@ export const Provider = ({ children }) => {
     <AuthProvider>
       <ProductsProvider>
         <CategoriesProvider>
-          <FilterProvider>{children}</FilterProvider>
+          <FilterProvider>
+            <CartProvider>{children}</CartProvider>
+          </FilterProvider>
         </CategoriesProvider>
       </ProductsProvider>
     </AuthProvider>

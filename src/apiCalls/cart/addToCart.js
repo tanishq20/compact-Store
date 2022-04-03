@@ -10,7 +10,7 @@ export const addToCart = async (productDetails, cartDispatch, cartItems) => {
     }
     const response = await axios.post(
       '/api/user/cart',
-      { product: { ...productDetails, qty: 1 } },
+      { product: { ...productDetails } },
       config
     )
 

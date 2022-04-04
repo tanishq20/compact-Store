@@ -37,7 +37,7 @@ export const CartCard = ({ productDetails, horz, newBadge }) => {
       addToWishlist(productDetails, wishlistDispatch)
       removeFromCart(_id, cartDispatch)
     }
-    Toast(`Succeddfully moved ${cardHead} to wishlist`, 'success')
+    Toast(`Successfully moved ${cardHead} to wishlist`, 'success')
   }
 
   return (

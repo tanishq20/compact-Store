@@ -66,6 +66,7 @@ export const LoginAuth = () => {
         Toast('Login Successfull', 'success')
       }
     } catch (error) {
+      setLoginForm(defaultLoginForm)
       Toast('Login Failed, try again later', 'error')
     }
   }

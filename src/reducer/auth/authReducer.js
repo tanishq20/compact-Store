@@ -7,6 +7,8 @@ export const authReducer = (state, action) => {
         userDetails: action.userDetailsPayload,
         encodedToken: action.encodedTokenPayload,
       }
+    case 'GET_LOGOUT_SUCCESS':
+      return { ...state, userLogin: false, userDetails: {}, encodedToken: '' }
     default:
       return state
   }

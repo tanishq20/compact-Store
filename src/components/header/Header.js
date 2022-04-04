@@ -1,7 +1,27 @@
 import { Link } from 'react-router-dom'
+import { Badge, Toast } from '../../components'
+import { useAuth, useCart, useWishlist } from '../../context'
 import style from './Header.module.css'
 
 export const Header = () => {
+  const { wishlistState, wishlistDispatch } = useWishlist()
+  const { wishlistItems } = wishlistState
+
+  const { cartState, cartDispatch } = useCart()
+  const { cartItems } = cartState
+
+  const { authState, authDispatch } = useAuth()
+  const { userLogin } = authState
+
+  const logoutClickHandler = () => {
+    localStorage.removeItem('encodedToken')
+    localStorage.removeItem('firstName')
+    wishlistDispatch({ type: 'SET_WISHLIST', payload: [] })
+    cartDispatch({ type: 'SET_CART_ITEM', payload: [] })
+    authDispatch({ type: 'GET_LOGOUT_SUCCESS' })
+    Toast('Logout Successfull', 'success')
+  }
+
   return (
     <header
       className={`header-container ${style.header_container} justify-content-between`}
@@ -37,34 +57,42 @@ export const Header = () => {
           >
             <button className='btn btn-primary'>API Test</button>
           </Link>
-          <Link
-            to={'/login'}
-            className={`header-item ${style.header_item} d-flex flex-col align-items-center justify-content-center`}
-          >
-            <button className='btn btn-primary'>Login</button>
-          </Link>
+          {userLogin ? (
+            <div
+              className={`header-item ${style.header_item} d-flex flex-col align-items-center justify-content-center`}
+            >
+              <button className='btn btn-primary' onClick={logoutClickHandler}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link
+              to={'/login'}
+              className={`header-item ${style.header_item} d-flex flex-col align-items-center justify-content-center`}
+            >
+              <button className='btn btn-primary'>Login</button>
+            </Link>
+          )}
           <Link
             to={'/wishlist'}
             className={`header-item ${style.header_item} d-flex flex-col align-items-center justify-content-center`}
           >
-            <p className='badge position-relative'>
-              <i className='fa fa-solid fa-heart badge-icon' />
-              <span className='badge-content position-absolute sm-badge'>
-                12
-              </span>
-            </p>
+            <Badge
+              badgeName='fa fa-solid fa-heart'
+              badgeCount={
+                wishlistItems?.length === 0 ? 0 : wishlistItems.length
+              }
+            />
             <span className={style.header_item_text}>Wishlist</span>
           </Link>
           <Link
             to={'/cart'}
             className={`header-item ${style.header_item} d-flex flex-col align-items-center justify-content-center`}
           >
-            <p className='badge position-relative'>
-              <i className='fas fa-shopping-cart badge-icon' />
-              <span className='badge-content position-absolute sm-badge'>
-                1
-              </span>
-            </p>
+            <Badge
+              badgeName='fas fa-shopping-cart'
+              badgeCount={cartItems?.length === 0 ? 0 : cartItems.length}
+            />
             <span className={style.header_item_text}>Cart</span>
           </Link>
         </ul>

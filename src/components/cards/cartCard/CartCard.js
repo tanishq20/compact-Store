@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
-import { incDescQuantity, removeFromCart } from '../../../apiCalls'
-import { useCart } from '../../../context'
+import {
+  addToWishlist,
+  incDescQuantity,
+  removeFromCart,
+} from '../../../apiCalls'
+import { useCart, useWishlist } from '../../../context'
 import { Toast } from '../../../components'
 import style from './CartCard.module.css'
 
@@ -17,11 +21,24 @@ export const CartCard = ({ productDetails, horz, newBadge }) => {
     qty,
   } = productDetails
 
-  const { cartDispatch } = useCart()
-
   useEffect(() => {
     qty >= 5 && Toast(`Only 5 unit(s) allowed in each order`, 'info')
   }, [qty])
+
+  const { cartDispatch } = useCart()
+
+  const { wishlistState, wishlistDispatch } = useWishlist()
+  const { wishlistItems } = wishlistState
+
+  const moveToWishlistHandler = () => {
+    if (wishlistItems.find((item) => item._id === _id)) {
+      removeFromCart(_id, cartDispatch)
+    } else {
+      addToWishlist(productDetails, wishlistDispatch)
+      removeFromCart(_id, cartDispatch)
+    }
+    Toast(`Successfully moved ${cardHead} to wishlist`, 'success')
+  }
 
   return (
     <div
@@ -96,7 +113,10 @@ export const CartCard = ({ productDetails, horz, newBadge }) => {
             </div>
           </div>
           <div className='card-footer'>
-            <button className='btn btn-secondary-outline'>
+            <button
+              className='btn btn-secondary-outline'
+              onClick={moveToWishlistHandler}
+            >
               Move to wishlist
             </button>
           </div>

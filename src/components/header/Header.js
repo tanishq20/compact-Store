@@ -51,12 +51,6 @@ export const Header = () => {
       </div>
       <nav className={`header-nav ${style.header_nav}`}>
         <ul className={`header-list ${style.header_list}`}>
-          <Link
-            to={'/mockapi'}
-            className={`header-item ${style.header_item} d-flex flex-col align-items-center justify-content-center`}
-          >
-            <button className='btn btn-primary'>API Test</button>
-          </Link>
           {userLogin ? (
             <div
               className={`header-item ${style.header_item} d-flex flex-col align-items-center justify-content-center`}

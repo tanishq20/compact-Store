@@ -26,8 +26,6 @@ export const Products = () => {
 
   const { filteredProducts } = useFilter()
 
-  console.log(filteredProducts)
-
   return (
     <main>
       <div className='products-page d-flex'>

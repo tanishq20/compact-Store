@@ -5,12 +5,28 @@ import {
   ShowcaseHeader,
 } from '../../components'
 import { useFilter, useProducts } from '../../context'
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 export const Products = () => {
   const { productsState } = useProducts()
   const { productsLoading, productsError } = productsState
 
+  const { filterDispatch } = useFilter()
+
+  const { category } = useParams()
+
+  useEffect(() => {
+    if (category !== undefined) {
+      filterDispatch({ type: 'CATEGORIES', payload: category })
+    } else {
+      filterDispatch({ type: 'RESET_ALL' })
+    }
+  }, [])
+
   const { filteredProducts } = useFilter()
+
+  console.log(filteredProducts)
 
   return (
     <main>

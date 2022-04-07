@@ -25,7 +25,7 @@ export const CategoriesProvider = ({ children }) => {
       const categoriesData = await axios.get('api/categories')
       categoriesDispatch({
         type: 'GET_CATEGORIES_SUCCESS',
-        payload: categoriesData.data.categories,
+        payload: categoriesData?.data?.categories,
       })
     } catch (error) {
       categoriesDispatch({ type: 'GET_CATEGORIES_ERROR' })
